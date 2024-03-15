@@ -1,0 +1,23 @@
+Two Sum Solution with Time Complexity of O(N) :
+
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        int i = 0;
+        int[] sum = new int[2];
+        Dictionary<int,int> hashmap = new Dictionary<int,int>();
+
+        foreach(var num in nums){
+            var element = target - num;
+            if(!hashmap.ContainsValue(element)){
+                  hashmap.Add(i,num);
+                  i++;
+            }
+            else{
+                int key = hashmap.FirstOrDefault(x => x.Value == element).Key;
+                sum[0] = key;
+                sum[1] = i; 
+            }
+        }
+        return sum;
+    }
+}
